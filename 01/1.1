@@ -1,0 +1,14 @@
+require_relative './variables.rb'
+depths = SharedVars::DEPTHS
+depths = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263
+]
+
+increase_count = 0
+
+depths.each_with_index do |depth, index|
+  if depth > depths[index-1]
+    increase_count += 1
+  end
+end
+
+puts increase_count

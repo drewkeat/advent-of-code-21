@@ -1,0 +1,17 @@
+require_relative './variables.rb'
+depths = SharedVars::DEPTHS
+# depths = [199, 200, 208, 210, 200, 207, 240, 269, 263, 260]
+
+increase_count = 0
+
+depths.each_with_index do |depth, index|
+  if index < (depths.length - 3)
+    window1 = [depth, depths[index + 1], depths[index + 2]].sum
+    window2 = [depths[index + 1], depths[index + 2], depths[index + 3]].sum
+    if window2 > window1
+      increase_count += 1
+    end
+  end
+end
+
+puts increase_count
